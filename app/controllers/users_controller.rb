@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
-    def index
-        puts params
-    end
-    def show
-        puts params
+  def index
+    puts params
+  end
 
-    end
+  def show
+    puts params
+  end
 end
