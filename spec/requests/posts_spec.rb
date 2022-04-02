@@ -1,5 +1,5 @@
 require 'rails_helper'
-RSpec.describe PostsController, type: :controller do
+RSpec.describe "Posts", type: :request do
   describe 'GET index' do
     it 'redirects posts to index page' do
       get '/users/1/posts'
