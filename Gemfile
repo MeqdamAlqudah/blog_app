@@ -43,9 +43,17 @@ gem 'tzinfo-data'
 gem 'bootsnap', require: false
 gem 'rubocop', '>= 1.0', '< 2.0'
 
+# Run against this stable release
+group :development, :test do
+  gem 'rspec-rails', '~> 5.0.0'
+end
+
+# Or, run against the main branch
+# (requires main-branch versions of all related RSpec libraries)
+
 # Use Sass to process CSS
 # gem "sassc-rails"
-
+gem 'rails_helper'
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
