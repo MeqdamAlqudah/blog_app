@@ -1,10 +1,9 @@
 class CreateLikes < ActiveRecord::Migration[7.0]
   def change
     create_table :likes do |t|
-      t.integer :AuthorId ,index: true
-      t.integer :PostId
-      t.date :CreatedAt
-      t.date :UpdatedAt
+      t.belongs_to :user , foreign_key: true
+      t.belongs_to :post , foreign_key: true
+      t.string :author_id,index: true
       t.timestamps
     end
   end
