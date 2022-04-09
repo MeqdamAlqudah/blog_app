@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+  def new 
+    @user = Users.new
+  end
   def index
     @users = Users.all
     puts params
@@ -13,10 +16,10 @@ class UsersController < ApplicationController
   end
 
   def create
-    uname = params[:name]
-    uphoto = params[:photo]
-    ubio = params[:bio]
-    Users.create(name: uname, photo: uphoto, bio: ubio)
-    redirect_to '/users/index'
+    @new_user_form = Users.new(params(:user))
+    if @new_user_form.save
+    redirect_to new_user_path
+    end
   end
+  
 end

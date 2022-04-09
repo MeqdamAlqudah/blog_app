@@ -17,7 +17,8 @@
 
 ## Getting Started
 
-**Download the app from my repo then using command prompt go to the directory of the app and rub `rails s` .**
+**Download the app from my repo  then using command prompt go to the directory of the app and run the following 
+bundle install, rails db:create, rails db:migrate, and yarn or npm install in README as these commands are necessary to install the project locally, then run `rails s` .**
 
 
 To get a local copy up and running follow these simple example steps.
