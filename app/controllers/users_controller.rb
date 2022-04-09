@@ -5,10 +5,10 @@ class UsersController < ApplicationController
   end
 
   def show
-    id = params[:id]
-    @user = Users.where(id:)[0]
-    @posts = Users.where(id:)[0].most_recent_n(id)
-    @link = "http://127.0.0.1:3000/users/#{id}/posts"
+    user_id = params[:id]
+    @user = Users.where(id: user_id)[0]
+    @posts = Users.where(id: user_id)[0].most_recent_n(user_id)
+    @link = "http://127.0.0.1:3000/users/#{user_id}/posts"
     puts params
   end
 
