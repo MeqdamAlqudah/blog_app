@@ -1,1 +1,29 @@
-<h1>This posts show page</h1>
+<div>
+<div class = "post_container">
+<p class = "post_number">
+Post#<%=@post.id%> by 
+
+<span><%=@user.name%></span>
+</p>
+<div class = "show_reaction">
+<p>
+Comments:
+<%=@post.count_comments%>,
+</p>
+<p>
+Likes:
+<%= @post.count_likes%>
+</p>
+</div>
+<p><%=@post.text%></p>
+</div>
+<div class = "comments_container">
+<ul>
+<%=@comments.each do |comment|%>
+<li>
+<p><%=Users.where(id:comment.author_id)[0].name%></p>:<p><%=comment.text%></p> <p><%comment.id%></p>
+</li>
+<%end%>
+</ul>
+</div>
+</div>
