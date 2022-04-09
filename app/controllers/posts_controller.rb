@@ -4,6 +4,7 @@ class PostsController < ApplicationController
     @posts = Users.where(id: user_id)[0].get_all_posts(user_id)
     @user = Users.where(id: user_id)[0]
     @users = Users.all
+    @link = "http://127.0.0.1:3000/users/#{id}/posts"
     @comments = Comment.where(author_id: user_id)
     puts params
   end

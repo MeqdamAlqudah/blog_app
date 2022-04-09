@@ -85,3 +85,24 @@ h2 {
   margin-top: 8px;
   margin-right: 30px;
 }
+
+.shadow_button {
+  border: solid;
+  border-width: 2px;
+  margin: 10px;
+  box-shadow: 1px 1px 1px 1px;
+  border-color: black;
+  width: 33vw;
+  align-self: center;
+}
+
+.shadow_button a {
+  color: black;
+  text-decoration: none;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
