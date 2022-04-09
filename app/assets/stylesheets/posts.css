@@ -2,7 +2,6 @@
   font-family: sans-serif;
 }
 
-
 .single_username {
   display: flex;
   width: 99vw;
@@ -12,11 +11,11 @@
   width: 25vw;
   height: 20vw;
   border: solid;
-  border-width: 2px;  
+  border-width: 2px;
   margin-top: 9px;
 }
 
-.single_username div:first-of-type hr:first-child{
+.single_username div:first-of-type hr:first-child {
   width: 31vw;
   transform: rotate(39deg);
   transform-origin: 13px -2px;
@@ -24,7 +23,7 @@
   border-width: 1px;
 }
 
-.single_username div:first-of-type hr:last-of-type{
+.single_username div:first-of-type hr:last-of-type {
   width: 32vw;
   transform: rotate(142deg);
   transform-origin: 13.7vw 1.6vw;
@@ -32,9 +31,9 @@
   border-width: 1px;
 }
 
-@media only screen and (min-width: 346px){
+@media only screen and (min-width: 346px) {
   .single_username div:first-of-type hr:last-of-type {
-    display:none;
+    display: none;
   }
 }
 
@@ -51,12 +50,11 @@
 }
 
 h2 {
-  font-size:15px;
+  font-size: 15px;
 }
 
-.post_data .reactions p{
+.post_data .reactions p {
   font-size: 10px;
-  
 }
 
 .post_data .reactions {
@@ -74,11 +72,10 @@ h2 {
   width: 94vw;
   border-color: black;
   margin-left: -4px;
-
 }
 
 .show_reaction {
-  font-size:11px;
+  font-size: 11px;
   display: flex;
 }
 

@@ -4,23 +4,23 @@ class Users < ApplicationRecord
   has_many :posts
   # Ex:- scope :active, -> {where(:active => true)}
   def most_recent_n(id = self.id, lim = 3)
-    posts = Posts.where(author_id: id).order(created_at: :desc).limit(lim)
-    return posts
+    Posts.where(author_id: id).order(created_at: :desc).limit(lim)
   end
-  def count_posts(name =self)
+
+  def count_posts(name = self)
     posts = Posts.where(author_id: name)
-    return posts.length
+    posts.length
   end
-  def get_all_posts(id=self.id)
+
+  def get_all_posts(id = self.id)
     posts = Posts.where(author_id: id)
     dic = {}
     count = 1
     posts.each do |single|
       dic[count] = single
-      count+=1
+      count += 1
     end
-    
-    return dic
-  end
 
+    dic
+  end
 end
