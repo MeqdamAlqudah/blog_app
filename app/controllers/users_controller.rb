@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
-  def new 
+  def new
     @user = Users.new
   end
+
   def index
     @users = Users.all
     puts params
@@ -17,9 +18,6 @@ class UsersController < ApplicationController
 
   def create
     @new_user_form = Users.new(params(:user))
-    if @new_user_form.save
-    redirect_to new_user_path
-    end
+    redirect_to new_user_path if @new_user_form.save
   end
-  
 end
