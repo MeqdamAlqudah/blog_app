@@ -1,8 +1,15 @@
 class UsersController < ApplicationController
-  def new
+  def newpost
     @user = Users.new
+    @user_id = params[:user_id]
+    @post = Posts.new(author_id:params[:user_id])  
   end
-
+  def newcomment
+    @user_id = params[:user_id]
+    @post_id = params[:post_id]
+    @comment = Comment.new(author_id:params[:user_id])  
+  end
+  
   def index
     @users = Users.all
     puts params
@@ -16,8 +23,17 @@ class UsersController < ApplicationController
     puts params
   end
 
-  def create
-    @new_user_form = Users.new(params(:user))
-    redirect_to new_user_path if @new_user_form.save
+  def createpost
+    user_id = params[:user_id]
+    data = params[:posts]
+    @post = Posts.new( user_id: user_id,title:data[:title],text:data[:text ],comments_counter:0,likes_counter:0)
+    redirect_to "/users/#{user_id}/newpost" if @post.save
+  end
+  def createcomment
+    post_id = params[:post_id]
+    user_id = params[:user_id]
+    data = params[:comment]
+    @comment = Comment.new( author_id: user_id,text:data[:text ],post_id:post_id)
+    redirect_to "/users/#{user_id}/posts/#{post_id}/newcomment" if @comment.save
   end
 end

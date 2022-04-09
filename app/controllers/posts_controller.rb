@@ -1,4 +1,7 @@
 class PostsController < ApplicationController
+  def new
+    @post = Posts.new(author_id:params[:user_id])
+  end
   def index
     user_id = params[:user_id]
     @posts = Users.where(id: user_id)[0].get_all_posts(user_id)

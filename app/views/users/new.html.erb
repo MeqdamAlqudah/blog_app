@@ -1,8 +1,0 @@
-Enter new user Information
-<hr>
-<%form_with model:Users.new do |f| %>
-    <%= f.text_field  :name %><br/>
-    <%=f.text_field :photo %><br/>
-    <%= f.text_area :bio %><br/>
-    <% f.submit %>
-<%end %>
