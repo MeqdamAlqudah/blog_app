@@ -24,7 +24,9 @@ To get a local copy up and running follow these simple example steps.
 
 
 ### Usage
-
+You can use this app to show user in my data base to add user you can 
+use command prompt and go to the project directory in your machine 
+and type `rails c` the use CRUD operations to  handle user and post and comment calsses
 ### Run tests
 
 ### Deployment
