@@ -7,7 +7,7 @@ class Users < ApplicationRecord
     Posts.where(author_id: id).order(created_at: :desc).limit(lim)
   end
 
-  def count_posts(name = self.id)
+  def count_posts(name = id)
     posts = Posts.where(author_id: name)
     posts.length
   end

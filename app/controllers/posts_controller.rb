@@ -25,6 +25,6 @@ class PostsController < ApplicationController
     pauthor_id = params[:author_id]
     ptitle = params[:title]
     ptext = params[:text]
-    Posts.create(user_id:pauthor_id,author_id: pauthor_id, title: ptitle, text: ptext)
+    Posts.create(user_id: pauthor_id, author_id: pauthor_id, title: ptitle, text: ptext)
   end
 end
