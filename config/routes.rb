@@ -4,8 +4,7 @@ Rails.application.routes.draw do
   get "users/:user_id/newpost" => "users#newpost",:as => :forums
   post "users/:user_id/newpost" => "users#createpost", :as => :create_forum
   get "users/:user_id/posts/:post_id/newcomment" => "users#newcomment",:as => :forumssecond
-  post "users/:user_id/posts/:post_id/newcomment" => "users#createcomment", :as => :create_forumsecond
-
+  post "users/:user_id/posts/:post_id/createcomment" => "users#createcomment", :as => :create_forumsecond
   # get "/users/:user_id/posts(.:format)", to: "posts#index"
   # get "/users/:user_id/posts/:id(.:format)", to: "posts#show"
   # get "/users(.:format)", to: "users#index"

@@ -1,5 +1,6 @@
 * {
   font-family: sans-serif;
+  list-style: none;
 }
 
 .single_username {
@@ -35,6 +36,17 @@
   .single_username div:first-of-type hr:last-of-type {
     display: none;
   }
+}
+
+.comments_container ul li {
+  display: flex;
+  font-size: 11px;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.comments_container ul li p {
+  margin-left: 6px;
 }
 
 .post_data {

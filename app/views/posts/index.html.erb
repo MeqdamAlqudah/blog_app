@@ -28,7 +28,7 @@ Likes:
 </li>
 
 <ul class="post_data">
-<%@comments.each do |comment|%>
+<%post.comment.each do |comment|%>
     <li>
     <p><%=Users.where(id:comment.author_id)[0].name%></p>:
     <p><%=comment.text%></p>

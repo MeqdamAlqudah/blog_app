@@ -9,7 +9,6 @@ class PostsController < ApplicationController
     @user = Users.where(id: user_id)[0]
     @users = Users.all
     @link = "http://127.0.0.1:3000/users/#{user_id}/posts"
-    @comments = Comment.where(author_id: user_id)
     puts params
   end
 
@@ -18,7 +17,7 @@ class PostsController < ApplicationController
     post_id = params[:id]
     @post = Posts.where(id: post_id)[0]
     @user = Users.where(id: user_id)[0]
-    @comments = Comment.where(author_id: post_id)
+    @comments = Posts.where(id: post_id)[0].comment
     puts params
   end
 
@@ -26,6 +25,6 @@ class PostsController < ApplicationController
     pauthor_id = params[:author_id]
     ptitle = params[:title]
     ptext = params[:text]
-    Posts.create(author_id: pauthor_id, title: ptitle, text: ptext)
+    Posts.create(user_id:pauthor_id,author_id: pauthor_id, title: ptitle, text: ptext)
   end
 end

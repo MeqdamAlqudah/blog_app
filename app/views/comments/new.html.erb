@@ -1,6 +1,10 @@
-Enter new user Information
+<%
+=begin%>
+ Enter new user Information
 <hr>
 <%= form_with(model: [:comments,@comment ],url:"/users/#{@user_id}/posts/#{@post_id}/comments/new",format: :json) do |f| %>
     Text: <%=f.text_field :text %><br/>
     <button><% f.submit %>submit</button>
-<%end %>
+<%end %> 
+<%
+=end%>

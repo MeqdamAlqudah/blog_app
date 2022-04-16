@@ -11,25 +11,24 @@ class Posts < ApplicationRecord
   end
 
   def count_comments(id = self.id)
-    comments = Comment.where(post_id: id)
+    comments = self.comment
     comments.length
   end
 
   def count_likes(id = self.id)
-    likes = Like.where(post_id: id)
+    likes = self.like
     likes.length
   end
 
-  def create_comment(text, post_id = id, author_id = self.author_id)
-    comment = Comment.create(post_id:, author_id:, text:)
-    comment.post_id = post_id.to_i
-    # @comments.push(comment)
-    comment
+  def create_comment(input_text, input_post_id = self.id, input_author_id = self.author_id)
+    comment = self.comment.create(posts_id:input_post_id.to_i,post_id: input_post_id.to_i, author_id:input_author_id, text:input_text,users_id:input_author_id,created_at:Time.now.getutc,updated_at:Time.now.getutc)
+    comment.id = self.comment.length
+    return comment
   end
 
   def create_like(post_id = id, author_id = self.author_id)
-    like = Like.create(post_id:, author_id:)
-    @likes.push(like)
-    like
+    like = self.like.create(post_id:, author_id:,posts_id:post_id,users_id:author_id,created_at:Time.now.getutc,updated_at:Time.now.getutc)
+    like.id = self.like.length
+    return like
   end
 end

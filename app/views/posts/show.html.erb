@@ -19,9 +19,9 @@ Likes:
 </div>
 <div class = "comments_container">
 <ul>
-<%=@comments.each do |comment|%>
+<%@comments.each do |comment|%>
 <li>
-<p><%=Users.where(id:comment.author_id)[0].name%></p>:<p><%=comment.text%></p> <p><%comment.id%></p>
+<p><%=Users.where(id:comment.author_id)[0].name%></p>:<p><%=comment.text%></p> <p><%=comment.id%></p>
 </li>
 <%end%>
 </ul>

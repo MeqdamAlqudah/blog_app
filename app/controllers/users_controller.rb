@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
-  def newpost
+  def new
     @user = Users.new
+  end
+  def newpost
     @user_id = params[:user_id]
     @post = Posts.new(author_id: params[:user_id])
   end
@@ -35,7 +37,8 @@ class UsersController < ApplicationController
     post_id = params[:post_id]
     user_id = params[:user_id]
     data = params[:comment]
-    @comment = Comment.new(author_id: user_id, text: data[:text], post_id:)
+    @comment = Posts.where(id:post_id.to_i)[0].create_comment(data[:text])
     redirect_to "/users/#{user_id}/posts/#{post_id}/newcomment" if @comment.save
+    puts params
   end
 end
