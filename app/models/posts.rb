@@ -1,6 +1,12 @@
 class Posts < ApplicationRecord
   has_many :comment, class_name: 'Comment', foreign_key: 'post_id'
   has_many :like, class_name: 'Like', foreign_key: 'post_id'
+  validates :title,presence: true
+  validates :title ,length: {minimum:250 }
+  validates :comments_counter , numericality: { only_integer: true }
+  validates :comments_counter ,numericality: {minimum:0}
+  validates :likes_counter , numericality: { only_integer: true }
+  validates :likes_counter ,numericality: {minimum:0}
   def update_post_counter(id, value)
     user = Users.where(id:)
     user.update(posts_counter: value.to_s)
