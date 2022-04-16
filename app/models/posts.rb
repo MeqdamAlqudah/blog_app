@@ -7,7 +7,7 @@ class Posts < ApplicationRecord
   validates :comments_counter, numericality: { minimum: 0 }
   validates :likes_counter, numericality: { only_integer: true }
   validates :likes_counter, numericality: { minimum: 0 }
-  
+
   def update_post_counter(id, value)
     user = Users.where(id:)
     user.update(posts_counter: value.to_s)
