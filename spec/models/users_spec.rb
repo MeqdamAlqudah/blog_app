@@ -1,4 +1,5 @@
-require 'rails_helper'
+require_relative '../spec_helper'
+require_relative '../../app/models/users'
 RSpec.describe Users, type: :model do
   subject do
     Users.new(name: 'Mohammed', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Engineer from Mexico.',

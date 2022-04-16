@@ -1,6 +1,6 @@
 Enter new user Information
 <hr>
-<%= form_with(model: [:users,@post ],url:"/users/#{@user_id}/newpost",format: :json) do |f| %>
+<%= form_with(model: [:users,@post ],url:"/users/#{@user_id}/createpost",method:"post",format: :json) do |f| %>
     Title: <%= f.text_field  :title %><br/>
     Text: <%=f.text_field :text %><br/>
     <button><% f.submit %>submit</button>

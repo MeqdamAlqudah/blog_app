@@ -1,4 +1,5 @@
-require 'rails_helper'
+require_relative '../spec_helper'
+require_relative '../../app/models/posts'
 RSpec.describe Posts, type: :model do
   subject { Posts.new(user_id: 1, author_id: 1, title: 'Hello', text: 'This is my first post') }
   it 'title should be present ' do

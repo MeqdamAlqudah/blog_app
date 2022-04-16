@@ -5,8 +5,8 @@ class PostsController < ApplicationController
 
   def index
     user_id = params[:user_id]
-    @posts = Users.where(id: user_id)[0].get_all_posts(user_id)
     @user = Users.where(id: user_id)[0]
+    @posts = @user.posts.includes(:comments)
     @users = Users.all
     @link = "http://127.0.0.1:3000/users/#{user_id}/posts"
     puts params

@@ -28,14 +28,20 @@ class UsersController < ApplicationController
   end
 
   def createpost
-    user_id = params[:user_id]
+    userid = params[:user_id]
     data = params[:posts]
-    @post = Posts.new(user_id:, title: data[:title], text: data[:text], comments_counter: 0, likes_counter: 0)
+    @post = Posts.new(author_id: userid, user_id: userid, title: data[:title], text: data[:text], comments_counter: 0,
+                      likes_counter: 0)
+    puts @post.save
+    puts @post.user_id
+    puts @post.comments_counter
+    puts @post.likes_counter
     redirect_to "/users/#{user_id}/newpost" if @post.save
+    puts params
   end
 
   def destroy
-    session.delete(user_id)
+    session.delete(:user_id)
     flash[:notice] = 'Please enter a valid input'
     redirect_to root_url
   end
