@@ -30,14 +30,10 @@ class UsersController < ApplicationController
   def createpost
     userid = params[:user_id]
     data = params[:posts]
-    @post = Posts.new(author_id: userid, user_id: userid, title: data[:title], text: data[:text], comments_counter: 0,
+    @post = Posts.create(author_id: userid, user_id: userid, title: data[:title], text: data[:text], comments_counter: 0,
                       likes_counter: 0)
-    puts @post.save
-    puts @post.user_id
-    puts @post.comments_counter
-    puts @post.likes_counter
     redirect_to "/users/#{user_id}/newpost" if @post.save
-    puts params
+    puts @post
   end
 
   def destroy
