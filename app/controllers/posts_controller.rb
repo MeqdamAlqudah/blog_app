@@ -21,6 +21,12 @@ class PostsController < ApplicationController
     puts params
   end
 
+  def destroy
+    session.delete(:post_id)
+    flash[:notice] = 'Please enter a valid input'
+    redirect_to root_url
+  end
+
   def create
     pauthor_id = params[:author_id]
     ptitle = params[:title]

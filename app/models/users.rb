@@ -2,9 +2,9 @@ class Users < ApplicationRecord
   has_many :comments, class_name: 'Comments', foreign_key: 'author_id'
   has_many :likes, class_name: 'Like', foreign_key: 'author_id'
   has_many :posts
-  validates :name,presence: true
-  validates :posts_counter , numericality: { only_integer: true }
-  validates :posts_counter ,numericality: {minimum:0}
+  validates :name, presence: true
+  validates :posts_counter, numericality: { only_integer: true }
+  validates :posts_counter, numericality: { minimum: 0 }
   # Ex:- scope :active, -> {where(:active => true)}
   def most_recent_n(id = self.id, lim = 3)
     Posts.where(author_id: id).order(created_at: :desc).limit(lim)

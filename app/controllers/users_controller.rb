@@ -34,6 +34,12 @@ class UsersController < ApplicationController
     redirect_to "/users/#{user_id}/newpost" if @post.save
   end
 
+  def destroy
+    session.delete(user_id)
+    flash[:notice] = 'Please enter a valid input'
+    redirect_to root_url
+  end
+
   def createcomment
     post_id = params[:post_id]
     user_id = params[:user_id]
