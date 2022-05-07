@@ -1,1 +1,17 @@
-<h1>This index users page</h1>
+<div>
+<ul>
+<% @users.each do |user| %>
+<li class= "single_username">
+<div>
+<hr>
+<hr>
+</div>
+<div class = "username">
+ <p><%= user.name %></p>
+ <p class = "number_of_posts">Number of posts: <%= user.count_posts %></p>
+ </div>
+<li>
+<% end %>
+</ul>    
+
+</div>
