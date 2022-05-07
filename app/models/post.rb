@@ -29,14 +29,16 @@ class Post < ApplicationRecord
 
   def create_comment(input_text, input_post_id = id, input_author_id = author_id)
     comment = self.comment.create(posts_id: input_post_id.to_i, post_id: input_post_id.to_i, author_id: input_author_id,
-                                  text: input_text, users_id: input_author_id, created_at: Time.now.getutc,
+                                  text: input_text, users_id: input_author_id,
+                                  created_at: Time.now.getutc,
                                   updated_at: Time.now.getutc)
     comment.id = self.comment.length
     comment
   end
 
-  def create_like(input_post_id = id, input_author_id = self.author_id)
-    like = self.like.create(post_id:input_post_id, author_id:input_author_id, posts_id: post_id, users_id: author_id, created_at: Time.now.getutc,
+  def create_like(input_post_id = id, input_author_id = author_id)
+    like = self.like.create(post_id: input_post_id, author_id: input_author_id,
+                            posts_id: post_id, users_id: author_id, created_at: Time.now.getutc,
                             updated_at: Time.now.getutc)
     like.id = self.like.length
     like

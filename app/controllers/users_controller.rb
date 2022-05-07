@@ -31,8 +31,8 @@ class UsersController < ApplicationController
     userid = params[:user_id]
     data = params[:posts]
     @post = Post.create(author_id: userid, user_id: userid, title: data[:title], text: data[:text],
-                         comments_counter: 0,
-                         likes_counter: 0)
+                        comments_counter: 0,
+                        likes_counter: 0)
     redirect_to "/users/#{user_id}/newpost" if @post.save
     puts @post
   end
