@@ -1,11 +1,11 @@
 class UsersController < ApplicationController
   def new
-    @user = Users.new
+    @user = User.new
   end
 
   def newpost
     @user_id = params[:user_id]
-    @post = Posts.new(author_id: params[:user_id])
+    @post = Post.new(author_id: params[:user_id])
   end
 
   def newcomment
@@ -15,14 +15,14 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = Users.all
+    @users = User.all
     puts params
   end
 
   def show
     user_id = params[:id]
-    @user = Users.where(id: user_id)[0]
-    @posts = Users.where(id: user_id)[0].most_recent_n(user_id)
+    @user = User.where(id: user_id)[0]
+    @posts = User.where(id: user_id)[0].most_recent_n(user_id)
     @link = "http://127.0.0.1:3000/users/#{user_id}/posts"
     puts params
   end
@@ -30,7 +30,7 @@ class UsersController < ApplicationController
   def createpost
     userid = params[:user_id]
     data = params[:posts]
-    @post = Posts.create(author_id: userid, user_id: userid, title: data[:title], text: data[:text],
+    @post = Post.create(author_id: userid, user_id: userid, title: data[:title], text: data[:text],
                          comments_counter: 0,
                          likes_counter: 0)
     redirect_to "/users/#{user_id}/newpost" if @post.save
@@ -47,7 +47,7 @@ class UsersController < ApplicationController
     post_id = params[:post_id]
     user_id = params[:user_id]
     data = params[:comment]
-    @comment = Posts.where(id: post_id.to_i)[0].create_comment(data[:text])
+    @comment = Post.where(id: post_id.to_i)[0].create_comment(data[:text])
     redirect_to "/users/#{user_id}/posts/#{post_id}/newcomment" if @comment.save
     puts params
   end

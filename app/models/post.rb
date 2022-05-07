@@ -1,4 +1,4 @@
-class Posts < ApplicationRecord
+class Post < ApplicationRecord
   has_many :comment, class_name: 'Comment', foreign_key: 'post_id'
   has_many :like, class_name: 'Like', foreign_key: 'post_id'
   validates :title, presence: true
@@ -9,7 +9,7 @@ class Posts < ApplicationRecord
   validates :likes_counter, numericality: { minimum: 0 }
 
   def update_post_counter(id, value)
-    user = Users.where(id:)
+    user = User.where(id:)
     user.update(posts_counter: value.to_s)
   end
 
@@ -35,10 +35,11 @@ class Posts < ApplicationRecord
     comment
   end
 
-  def create_like(post_id = id, author_id = self.author_id)
-    like = self.like.create(post_id:, author_id:, posts_id: post_id, users_id: author_id, created_at: Time.now.getutc,
+  def create_like(input_post_id = id, input_author_id = self.author_id)
+    like = self.like.create(post_id:input_post_id, author_id:input_author_id, posts_id: post_id, users_id: author_id, created_at: Time.now.getutc,
                             updated_at: Time.now.getutc)
     like.id = self.like.length
     like
   end
 end
+f
