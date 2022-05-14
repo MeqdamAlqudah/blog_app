@@ -9,4 +9,15 @@ Rails.application.routes.draw do
   resources :users, only: [:newpost,:index, :show] do
     resources :posts, only: [:newpost,:index, :show]
 end
+
+namespace :api, defaults: { format: :json } do
+  namespace :v1 do
+    resources :posts, only: [:index] do
+      resources :comments, only: [:index, :create]
+    end
+  end
+end
+
+delete "/users/:user_id/posts/:id/delete" => "posts#destroy", as: "posts_delete"
+get "/users/:user_id/posts/:id/delete" => "posts#destroy"
 end

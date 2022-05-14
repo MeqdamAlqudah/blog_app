@@ -1,4 +1,6 @@
-class ApplicationController < ActionController::Base
+class ApplicationController < ActionController::API
+  include Response
+  include ExceptionHandler
   before_action :authenticate_user!
   before_action :update_allowed_parameters, if: :devise_controller?
 
