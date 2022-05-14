@@ -6,8 +6,10 @@ RSpec.describe 'User Show:', type: :feature do
   end
   it ' it redirects me to that post show page' do
     user = User.create!(name: 'Jonyole', email: 'john1059081@gmail.com', confirmed_at: Time.now,
-                        password: 'password', password_confirmation: 'password', bio: 'okay alright', photo: 'https://photo', posts_counter: 3, role: ' ')
-    post = Post.create!(title: 'Price', text: 'Price life alright', comments_counter: 4, likes_counter: 9,
+                        password: 'password', password_confirmation: 'password',
+                        bio: 'okay alright', photo: 'https://photo', posts_counter: 3, role: ' ')
+    post = Post.create!(title: 'Price', text: 'Price life alright',
+                        comments_counter: 4, likes_counter: 9,
                         user_id: user.id)
 
     fill_in 'blog', with: user.email
@@ -24,7 +26,9 @@ RSpec.describe 'User Show:', type: :feature do
 
   it 'Can see who wrote the post' do
     user = User.create!(name: 'Jonyole', email: 'john1050978@gmail.com', confirmed_at: Time.now,
-                        password: 'password', password_confirmation: 'password', bio: 'okay alright', photo: 'https://photo', posts_counter: 3, role: ' ')
+                        password: 'password',
+                        password_confirmation: 'password',
+                        bio: 'okay alright', photo: 'https://photo', posts_counter: 3, role: ' ')
     fill_in 'blog', with: user.email
     fill_in 'Password', with: user.password
     click_button 'Log in'
@@ -40,7 +44,8 @@ RSpec.describe 'User Show:', type: :feature do
 
   it 'To see comment each commentor left' do
     user = User.create!(name: 'Jonyole', email: 'jonyole@gmail.com', confirmed_at: Time.now, password: 'password',
-                        password_confirmation: 'password', bio: 'okay alright', photo: 'https://photo', posts_counter: 3, role: ' ')
+                        password_confirmation: 'password', bio: 'okay alright',
+                        photo: 'https://photo', posts_counter: 3, role: ' ')
     fill_in 'Email', with: user.email
     fill_in 'Password', with: user.password
     click_button 'Log in'
@@ -49,10 +54,12 @@ RSpec.describe 'User Show:', type: :feature do
                         likes_counter: 19, user_id: user.id)
 
     user2 = User.create!(name: 'Ole', email: 'ole068@gmail.com', confirmed_at: Time.now, password: 'password',
-                         password_confirmation: 'password', bio: 'okay alright', photo: 'https://photo', posts_counter: 3, role: ' ')
+                         password_confirmation: 'password', bio: 'okay alright',
+                         photo: 'https://photo', posts_counter: 3, role: ' ')
 
     user3 = User.create!(name: 'Eve', email: 'Eve8@gmail.com', confirmed_at: Time.now, password: 'password',
-                         password_confirmation: 'password', bio: 'okay alright', photo: 'https://photo', posts_counter: 3, role: ' ')
+                         password_confirmation: 'password', bio: 'okay alright',
+                         photo: 'https://photo', posts_counter: 3, role: ' ')
 
     Comment.create!(text: 'Hello here', user_id: user.id, post_id: post.id)
     Comment.create!(text: 'ole is here', user_id: user2.id, post_id: post.id)
@@ -69,7 +76,8 @@ RSpec.describe 'User Show:', type: :feature do
     before(:each) do
       visit new_user_session_path
       user = User.create!(name: 'Jonyole', email: 'john105068@gmail.com', confirmed_at: Time.now,
-                          password: 'password', password_confirmation: 'password', bio: 'okay alright', photo: 'https://photo', posts_counter: 3, role: ' ')
+                          password: 'password', password_confirmation: 'password', bio: 'okay alright',
+                          photo: 'https://photo', posts_counter: 3, role: ' ')
       fill_in 'Email', with: user.email
       fill_in 'Password', with: user.password
       click_button 'Log in'

@@ -7,7 +7,8 @@ RSpec.describe 'Post redirect:', type: :feature do
 
   it 'click on see all and redirects me' do
     user = User.create!(name: 'Great', email: 'great8@gmail.com', confirmed_at: Time.now, password: 'password',
-                        password_confirmation: 'password', bio: 'okay alright', photo: 'https://photo', posts_counter: 3, role: 'admin')
+                        password_confirmation: 'password', bio: 'okay alright',
+                        photo: 'https://photo', posts_counter: 3, role: 'admin')
 
     fill_in 'blog', with: 'great8@gmail.com'
     fill_in 'Password', with: 'password'
@@ -20,7 +21,8 @@ RSpec.describe 'Post redirect:', type: :feature do
 
   it 'see redirect click user post show' do
     user = User.create!(name: 'Great', email: 'great8@gmail.com', confirmed_at: Time.now, password: 'password',
-                        password_confirmation: 'password', bio: 'okay alright', photo: 'https://photo', posts_counter: 3)
+                        password_confirmation: 'password', bio: 'okay alright',
+                        photo: 'https://photo', posts_counter: 3)
     fill_in 'blog', with: user.email
     fill_in 'Password', with: user.password
     click_button 'Log in'

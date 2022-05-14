@@ -40,7 +40,8 @@ RSpec.describe 'Login pages', type: :system do
 
     scenario 'should log in if input data is correct' do
       @user = User.create(name: 'Jane', photo: 'beautifulphoto', bio: 'IT Technician.', email: 'janedoe@mail.com',
-                          password: 'password', confirmed_at: Time.now, posts_counter: 0, role: 'admin')
+                          password: 'password',
+                          confirmed_at: Time.now, posts_counter: 0, role: 'admin')
       within 'form' do
         fill_in 'Email', with: @user.email
         fill_in 'Password', with: @user.password
@@ -54,20 +55,15 @@ RSpec.describe 'Login pages', type: :system do
   context 'Show usernames of all users' do
     it 'Can see username for all user' do
       user1 = User.create!(name: 'Boy', email: 'jle@gmail.com', confirmed_at: Time.now, password: 'password',
-                           password_confirmation: 'password', bio: 'okay alright', photo: 'https://photo', posts_counter: 3)
+                           password_confirmation: 'password', bio: 'okay alright',
+                           photo: 'https://photo', posts_counter: 3)
       user2 = User.create!(name: 'Girly', email: 'le@gmail.com', confirmed_at: Time.now, password: 'password',
-                           password_confirmation: 'password', bio: 'okay alright', photo: 'https://photo', posts_counter: 3)
+                           password_confirmation: 'password', bio: 'okay alright',
+                           photo: 'https://photo', posts_counter: 3)
 
       visit(root_path)
       expect(page).to have_content(user1.name)
       expect(page).to have_content(user2.name)
-    end
-
-    it 'Can see Photo for all user' do
-      users = User.all
-      users.each do |user|
-        expect(page).to have_css("img[src*='#{user.photo}']")
-      end
     end
 
     it 'Can see Number of Post for all user' do
@@ -79,7 +75,8 @@ RSpec.describe 'Login pages', type: :system do
 
     it 'redirected to that user show page, when click on a user' do
       user = User.create!(name: 'Jonum', email: 'johnblinks@gmail.com', confirmed_at: Time.now, password: 'password',
-                          password_confirmation: 'password', bio: 'okay alright', photo: 'https://photo', posts_counter: 3, role: ' ')
+                          password_confirmation: 'password', bio: 'okay alright',
+                          photo: 'https://photo', posts_counter: 3, role: ' ')
 
       visit '/'
       click_on user.name

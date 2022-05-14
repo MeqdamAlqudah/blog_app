@@ -4,7 +4,8 @@ RSpec.describe 'User Show:', type: :feature do
   before(:each) do
     visit new_user_session_path
     user = User.create!(name: 'Jonyole', email: 'john105908@gmail.com', confirmed_at: Time.now, password: 'password',
-                        password_confirmation: 'password', bio: 'okay alright', photo: 'https://photo', posts_counter: 3, role: ' ')
+                        password_confirmation: 'password', bio: 'okay alright',
+                        photo: 'https://photo', posts_counter: 3, role: ' ')
     fill_in 'Email', with: user.email
     fill_in 'Password', with: user.password
     click_button 'Log in'
