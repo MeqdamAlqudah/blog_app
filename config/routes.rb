@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :users
   root 'users#index'
-  resources :users
   get "users/:user_id/newpost" => "users#newpost",:as => :forums
   post "users/:user_id/createpost" => "users#createpost", :as => :create_forum
   get "users/:user_id/posts/:post_id/newcomment" => "users#newcomment",:as => :forumssecond
@@ -10,5 +10,3 @@ Rails.application.routes.draw do
     resources :posts, only: [:newpost,:index, :show]
 end
 end
-
-

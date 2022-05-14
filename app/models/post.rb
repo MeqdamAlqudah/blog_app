@@ -44,4 +44,3 @@ class Post < ApplicationRecord
     like
   end
 end
-f
