@@ -1,3 +1,120 @@
 * {
   font-family: sans-serif;
+  list-style: none;
+}
+
+.single_username {
+  display: flex;
+  width: 99vw;
+}
+
+.single_username div:first-of-type {
+  width: 25vw;
+  height: 20vw;
+  border: solid;
+  border-width: 2px;
+  margin-top: 9px;
+}
+
+.single_username div:first-of-type hr:first-child {
+  width: 31vw;
+  transform: rotate(39deg);
+  transform-origin: 13px -2px;
+  border: solid;
+  border-width: 1px;
+}
+
+.single_username div:first-of-type hr:last-of-type {
+  width: 32vw;
+  transform: rotate(142deg);
+  transform-origin: 13.7vw 1.6vw;
+  border: solid;
+  border-width: 1px;
+}
+
+@media only screen and (min-width: 346px) {
+  .single_username div:first-of-type hr:last-of-type {
+    display: none;
+  }
+}
+
+.comments_container ul li {
+  display: flex;
+  font-size: 11px;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.comments_container ul li p {
+  margin-left: 6px;
+}
+
+.post_data {
+  border: solid;
+  border-width: 2px;
+  margin-top: 20px;
+  width: 94vw;
+  border-color: black;
+}
+
+.post_data .text {
+  font-size: 16px;
+}
+
+h2 {
+  font-size: 15px;
+}
+
+.post_data .reactions p {
+  font-size: 10px;
+}
+
+.post_data .reactions {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 15px;
+}
+
+.post_container,
+.comments_container {
+  border: solid;
+  padding-left: 8px;
+  border-width: 2px;
+  margin-top: 20px;
+  width: 94vw;
+  border-color: black;
+  margin-left: -4px;
+}
+
+.show_reaction {
+  font-size: 11px;
+  display: flex;
+}
+
+.post_number {
+  float: left;
+  font-size: 13px;
+  margin-top: 8px;
+  margin-right: 30px;
+}
+
+.shadow_button {
+  border: solid;
+  border-width: 2px;
+  margin: 10px;
+  box-shadow: 1px 1px 1px 1px;
+  border-color: black;
+  width: 33vw;
+  align-self: center;
+}
+
+.shadow_button a {
+  color: black;
+  text-decoration: none;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
