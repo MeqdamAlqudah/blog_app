@@ -1,1 +1,36 @@
-<h1>This is show users page</h1>
+<div class = "container">
+<h1></h1>
+<ul>
+<li class= "single_username">
+<div>
+<hr>
+<hr>
+</div>
+<div class = "username">
+ <p><%= @user.name %></p>
+ <p class = "number_of_posts">Number of posts: <%= @user.count_posts %></p>
+ </div>
+<li>
+<li class = "bio">
+<p><%= @user.bio%></p>
+</li>
+<% @posts.each do |post| %>
+<li class = "post_data">
+<p>Post #<%= post.id%></p>
+<h2><%= post.title%></h2>
+<div class = "reactions">
+<p>
+Comments:
+<%=post.count_comments%>,
+</p>
+<p>
+Likes:
+<%= post.count_likes%>
+</p>
+</div>
+</li>
+<% end %>
+
+</ul>    
+<button class = "shadow_button"><a href =<%=@link%>>See all posts</a></button>
+</div>
