@@ -1,1 +1,43 @@
-<h1>This is posts index page</h1>
+<div class = "container">
+<ul>
+<li class= "single_username">
+<div>
+<hr>
+<hr>
+</div>
+<div class = "username">
+ <p><%= @user.name %></p>
+ <p class = "number_of_posts">Number of posts: <%= @user.count_posts %></p>
+ </div>
+<li>
+<%@posts.each do |number,post|%>
+<li class= "post_data">
+<p>Post #<%= post.id%></p>
+<p><%=post.title%></p>
+<p><%=post.text %></p>
+<div class = "reactions">
+<p>
+Comments:
+<%=post.count_comments%>,
+</p>
+<p>
+Likes:
+<%= post.count_likes%>
+</p>
+</div>
+</li>
+
+<ul class="post_data">
+<%post.comment.each do |comment|%>
+    <li>
+    <p><%=Users.where(id:comment.author_id)[0].name%></p>:
+    <p><%=comment.text%></p>
+    <%= comment%>
+    </li>
+<%end%>
+</ul>
+<%end%>
+</ul>
+<button class = "shadow_button"><a href =<%=@link%>>Pagination</a></button>
+
+</div>
